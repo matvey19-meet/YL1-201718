@@ -4,6 +4,7 @@ from dist_formula import *
 class Ball(Turtle):
 	def __init__(self, radius, color, speed):
 		Turtle.__init__(self)
+		
 		self.shape("circle")
 		self.shapesize(radius)
 		self.color(color)
