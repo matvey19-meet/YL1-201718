@@ -1,6 +1,18 @@
 import turtle
 from turtle import *
 
+turtle.hideturtle()
+turtle.penup()
+
+border = turtle.clone()
+border.penup()
+border.goto(400/2,-400/2)
+border.pendown()
+border.goto(400/2,400/2)
+border.goto(-400/2,400/2)
+border.goto(-400/2,-400/2)
+border.goto(400/2,-400/2)
+border.hideturtle()
 
 
 class Ball(Turtle):
@@ -13,7 +25,7 @@ class Ball(Turtle):
 		self.dy=dy
 		self.r= r
 		self.shape("circle")
-		self.shapesize = self.r/10
+		self.shapesize(self.r/10)
 		self.color(color)
 	def move(self, width, height):
 		self.width=width
@@ -31,24 +43,26 @@ class Ball(Turtle):
 		bottom_side_ball= new_y - self.r
 
 
-		if top_side_ball>= height/2:
-			self.dy= -self.dy
-			self.dx= -self.dx
-		if bottom_side_ball <= -height/2:
-			self.dy= -self.dy
-			self.dx= -self.dx
-		if right_side_ball <= -width/2:
-			self.dy= -self.dy
-			self.dx= -self.dx
-		if left_side_ball >= (width/2):
-			self.dy= -self.dy
-			self.dx= -self.dx
+		if top_side_ball>= (height/2):
+			self.dy= -(self.dy)
+			self.clear()
+		if bottom_side_ball <= -(height/2):
+			self.dy= -(self.dy)
+			self.clear()
+		if right_side_ball <= (width/2):
+			
+			self.dx= -(self.dx)
+			self.clear()
+		if left_side_ball >= -(width/2):
+
+			self.dx= -(self.dx)
+			self.clear()
 
 
-ball1=Ball(0,0,3,1,100,"red")
+ball1=Ball(0,0,2,5,10,"red")
 
 while True:
-	ball1.move(500,500)
+	ball1.move(400,400)
 
 turtle.mainloop()
 
