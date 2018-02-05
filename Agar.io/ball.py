@@ -4,16 +4,6 @@ from turtle import *
 turtle.hideturtle()
 turtle.penup()
 
-border = turtle.clone()
-border.penup()
-border.goto(400/2,-400/2)
-border.pendown()
-border.goto(400/2,400/2)
-border.goto(-400/2,400/2)
-border.goto(-400/2,-400/2)
-border.goto(400/2,-400/2)
-border.hideturtle()
-
 
 class Ball(Turtle):
 	def __init__(self, x, y, dx, dy, r, color):
@@ -49,20 +39,20 @@ class Ball(Turtle):
 		if bottom_side_ball <= -(height/2):
 			self.dy= -(self.dy)
 			self.clear()
-		if right_side_ball <= (width/2):
+		if right_side_ball >= (width/2):
 			
 			self.dx= -(self.dx)
 			self.clear()
-		if left_side_ball >= -(width/2):
+		if left_side_ball <= -(width/2):
 
 			self.dx= -(self.dx)
 			self.clear()
 
 
-ball1=Ball(0,0,2,5,10,"red")
+# ball1=Ball(0,0,2,5,10,"red")
 
-while True:
-	ball1.move(400,400)
+# while True:
+# 	ball1.move(400,400)
 
-turtle.mainloop()
+# turtle.mainloop()
 
